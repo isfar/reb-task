@@ -1,0 +1,22 @@
+{
+    "name": "isfar/reb-fizbuzz",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Isfar\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Isfar\\Test\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Isfar Sifat",
+            "email": "isfar.sifat@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}
