@@ -8,7 +8,7 @@ use InvalidArgumentException;
 
 class FizBuzz
 {
-    public function fizzBuzz($start = 1, $stop = 100)
+    public function generate(int $start = 1, int $stop = 100): string
     {
         $string = '';
 

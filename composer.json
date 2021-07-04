@@ -8,7 +8,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Isfar\\Test\\": "tests/"
+            "Isfar\\Tests\\": "tests/"
         }
     },
     "authors": [
@@ -18,7 +18,12 @@
         }
     ],
     "minimum-stability": "dev",
+    "require": {
+        "ext-apcu": "*",
+        "ext-memcached": "*"
+    },
     "require-dev": {
-        "phpunit/phpunit": "10.0.x-dev"
+        "phpunit/phpunit": "10.0.x-dev",
+        "phpstan/phpstan": "0.12.x-dev"
     }
 }
