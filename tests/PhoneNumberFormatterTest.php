@@ -12,7 +12,7 @@ class PhoneNumberFormatterTest extends TestCase
     /**
      * @dataProvider dataProviderForFormatTesting
      */
-    public function testFormat(string $input)
+    public function testFormat(string $input): void
     {
         $phoneNumberFormatter = new PhoneNumberFormatter();
         $expected = '123-456-7890';
@@ -20,6 +20,9 @@ class PhoneNumberFormatterTest extends TestCase
         $this->assertSame($expected, $output);
     }
 
+    /**
+     * @return array<array<string>>
+     */
     public function dataProviderForFormatTesting(): array
     {
         return [

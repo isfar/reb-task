@@ -26,6 +26,9 @@ class FizBuzzTest extends TestCase
         $this->fizBuzz->generate($start, $stop);
     }
 
+    /**
+     * @return array<string, array<int>>
+     */
     public function dataProviderForGenerateThrowsExceptionTesting(): array
     {
         return [
@@ -44,33 +47,51 @@ class FizBuzzTest extends TestCase
         $this->assertSame($expected, $output);
     }
 
+    /**
+     * @return array<string, array<mixed>>
+     */
     public function dataProviderForGenerateTesting(): array
     {
         return [
+            'only one number in range' => [
+                1,
+                1,
+                '1',
+            ],
             'not divisible by 3 or 5' => [
                 1,
                 2,
-                '12'
+                '12',
             ],
             'divisible by 3' => [
                 1,
                 3,
-                '12Fizz'
+                '12Fizz',
             ],
             'divisible by 5' => [
                 4,
                 5,
-                '4Buzz'
+                '4Buzz',
             ],
-            'divisible by 3 & 5' => [
+            'divisible by 3, not 5' => [
+                2,
+                4,
+                '2Fizz4',
+            ],
+            'divisible by 5, not 3' => [
+                10,
+                11,
+                'Buzz11',
+            ],
+            'divisible by 3 or 5' => [
                 3,
                 5,
-                'Fizz4Buzz'
+                'Fizz4Buzz',
             ],
             'divisible by 3 & 5 and both' => [
                 10,
                 16,
-                'Buzz11Fizz1314FizzBuzz16'
+                'Buzz11Fizz1314FizzBuzz16',
             ],
         ];
     }
