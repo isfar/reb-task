@@ -1,0 +1,12 @@
+version: '3.1'
+services:
+    php:
+        build:
+            context: .
+            dockerfile: docker/php-cli/Dockerfile
+        restart: on-failure
+        volumes:
+            - ./:/usr/src/app
+        working_dir: /usr/src/app
+        tty: true
+        # command: tail -f /dev/null
