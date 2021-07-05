@@ -21,12 +21,12 @@ ALTER TABLE `users` ADD INDEX `idx_users_email` (`email`)
 
 ### Answer 2
 
-If we use `in_array` function, it will traverse through the whole array. The complexity is linear, i.e., `O(n)`. As it is sorted, we could use binary search, that's `O(logn)`. Even better approch would be using a hashmap, that is associative arrays to check if the key exists. This way, the complexity is a constant time `O(n)`. This is actually a set operation, so I wrote the set class `src/Set.php` and it's test `tests/SetTest.php`.
+If we use `in_array` function, it will traverse through the whole array. The complexity is linear, i.e., `O(n)`. As it is sorted, we could use binary search, that's `O(logn)`. Even better approch would be using a hashmap, that is associative arrays to check if the key exists. This way, the complexity is a constant time `O(1)`. This is actually a set operation, so I wrote the set class `src/Set.php` and it's test in `tests/SetTest.php`.
 
 
 ### Answer 3 
 
-Increasing `memory_limit` might solve this, but that's not a smart solution. That will eat-up the memory and may result in denial of service. We should fetch all the records with pagination. The `$per_page` should be tuned according to usecase, available memory and the total number of records. The downside of this approach is the waiting time for the blocking operation. We can overcome this by using non-blocking event-loop libraries like `react-php`. (The following code isn't tested, it's meant to give the overall idea)
+Increasing `memory_limit` might solve this, but that's not a smart solution. That will eat up the memory and may result in denial of service. We should fetch all the records with pagination. The `$per_page` should be tuned according to use-case, available memory and the total number of records. The downside of this approach is the waiting time for the blocking operation. We can overcome this by using non-blocking event-loop libraries like `react-php`. (The following code isn't tested, it's meant to give the overall idea)
 
 ```php
 $per_page = 1000;
